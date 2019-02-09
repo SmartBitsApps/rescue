@@ -40,7 +40,7 @@ gem 'jquery-rails'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
 
 # security
-#gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.2'
 
 # for translate (i18n)
 #gem 'devise-i18n', '~> 1.7', '>= 1.7.1'
