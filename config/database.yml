@@ -23,7 +23,8 @@ default: &default
   username: <%= ENV['USERNAME'] %>
   password: <%= ENV['PASSWORD'] %>
   host:     <%= ENV['IP'] %>
-
+  template: template0
+  
 development:
   <<: *default
   database: appshop_development
