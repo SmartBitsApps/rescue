@@ -33,6 +33,25 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# design
+gem 'bootstrap', '~> 4.2.1'
+gem 'popper_js', '~> 1.14.5'
+gem 'jquery-rails'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
+
+# security
+#gem 'devise', '~> 4.2'
+
+# for translate (i18n)
+#gem 'devise-i18n', '~> 1.7', '>= 1.7.1'
+#gem 'rails-i18n', '~> 5.1', '>= 5.1.2'
+
+# forms
+gem 'simple_form', '~> 4.1'
+
+# Autoprefixer
+gem "autoprefixer-rails"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
