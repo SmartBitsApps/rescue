@@ -34,9 +34,11 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # design
-gem 'bootstrap', '~> 4.1.1'
+#gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap', '~> 4.2', '>= 4.2.1'
 gem 'popper_js', '~> 1.14.5'
-gem 'jquery-rails'
+#gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
 
 # security
