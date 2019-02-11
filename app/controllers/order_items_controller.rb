@@ -1,7 +1,7 @@
 class OrderItemsController < ApplicationController
 
   def index
-    @items = current_cart.order.items
+    @order_items = current_cart.order.items
   end
 
   def create
@@ -16,6 +16,11 @@ class OrderItemsController < ApplicationController
   def destroy
     current_cart.remove_item(id: params[:id])
     redirect_to cart_path
+  end
+  
+  def remove_multiple
+    file_ids = params["order_items"]
+    current_order.items.where(id: file_ids).destroy_all
   end
 
 end

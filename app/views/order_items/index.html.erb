@@ -1,26 +1,75 @@
-<h2>Current Cart</h2>
+<!-- Cart -->
+  <div class="container px-3 my-5 clearfix">
 
-<table>
-  <thead>
-    <tr>
-      <td>Product</td>
-      <td>Price</td>
-      <td>Quantity</td>
-      <td></td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.product.title %></td>
-        <td><%= number_to_currency item.price %></td>
-        <td><%= item.quantity %></td>
-        <td>
-          <%= form_for item, method: :delete do |f| %>
-            <%= f.submit "Remove" %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <!-- Shopping cart table -->
+    <div class="table-responsive">
+      <table class="table table-bordered m-0">
+        <thead>
+          <tr>
+            <!-- Set columns width -->
+            <th class="text-center py-3 px-4" style="min-width: 400px;">Product Name &amp; Details</th>
+            <th class="text-right py-3 px-4" style="width: 100px;">Price</th>
+            <th class="text-center py-3 px-4" style="width: 120px;">Quantity</th>
+            <th class="text-right py-3 px-4" style="width: 100px;">Total</th>
+            <th class="text-center align-middle py-3 px-0" style="width: 40px;">
+              
+              
+              <!--<a href="#" class="shop-tooltip float-none text-light"title="Clear cart">-->
+              <!--  <i class="ino ion-md-trash"></i>-->
+              <!--</a>-->
+              
+              
+              <!--<%#= link_to remove_multiple_order_items_path(@order_items), method: :delete, class: "shop-tooltip float-none text-light" do %>-->
+              <!--  <i class="ino ion-md-trash"></i>-->
+              <!--<%# end %>-->
+              
+              <%= link_to remove_multiple_order_items_path(@order_items), method: :delete, class: "shop-tooltip close float-none text-danger" do %>
+                *
+              <% end %>
+              
+              
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <%= render partial: "order_item", collection: @order_items %>
+
+        </tbody>
+      </table>
+    </div>
+    <!-- / Shopping cart table -->
+
+    <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
+      <div class="mt-4">
+        <label class="text-muted font-weight-normal">Promocode</label>
+        <input type="text" placeholder="ABC" class="form-control">
+      </div>
+      <div class="d-flex">
+        <div class="text-right mt-4 mr-5">
+          <label class="text-muted font-weight-normal m-0">Discount</label>
+          <div class="text-large"><strong>$20</strong></div>
+        </div>
+        <div class="text-right mt-4">
+          <label class="text-muted font-weight-normal m-0">Total price</label>
+          <div class="text-large"><strong>$1164.65</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="float-right">
+      <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button>
+      <button type="button" class="btn btn-lg btn-primary mt-2">Checkout</button>
+    </div>
+
+  </div>
+  <!-- / Cart -->
+
+
+
+
+
+
+
+
+
