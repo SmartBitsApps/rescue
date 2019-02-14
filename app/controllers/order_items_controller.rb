@@ -19,8 +19,10 @@ class OrderItemsController < ApplicationController
   end
   
   def remove_multiple
-    file_ids = params["order_items"]
-    current_order.items.where(id: file_ids).destroy_all
+    #file_ids = params["order_items"]
+    current_cart.order.items.destroy_all
+    #@order_items = nil
+    redirect_to cart_path
   end
 
 end

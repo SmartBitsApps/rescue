@@ -7,30 +7,17 @@
         <thead>
           <tr>
             <!-- Set columns width -->
-            <th class="text-center py-3 px-4" style="min-width: 400px;">Product Name &amp; Details</th>
-            <th class="text-right py-3 px-4" style="width: 100px;">Price</th>
-            <th class="text-center py-3 px-4" style="width: 120px;">Quantity</th>
-            <th class="text-right py-3 px-4" style="width: 100px;">Total</th>
+            <th class="text-center py-3 px-4" style="min-width: 400px;">Název produktu &amp; Details</th>
+            <th class="text-right py-3 px-4" style="width: 100px;">Cena</th>
+            <th class="text-center py-3 px-4" style="width: 120px;">Množství</th>
+            <th class="text-right py-3 px-4" style="width: 100px;">Celkem</th>
             <th class="text-center align-middle py-3 px-0" style="width: 40px;">
+            
               
-              
-              <!--<a href="#" class="shop-tooltip float-none text-light"title="Clear cart">-->
-              <!--  <i class="ino ion-md-trash"></i>-->
-              <!--</a>-->
-              
-              
-              <!--<%#= link_to remove_multiple_order_items_path(@order_items), method: :delete, class: "shop-tooltip float-none text-light" do %>-->
-              <!--  <i class="ino ion-md-trash"></i>-->
-              <!--<%# end %>-->
-              
-              <%= link_to remove_multiple_order_items_path(@order_items), method: :delete, class: "shop-tooltip close float-none text-danger" do %>
+              <%= link_to remove_multiple_order_items_path(), method: :delete, class: "shop-tooltip close float-none text-danger" do %>
                 *
               <% end %>
-              
-              <%= form_tag remove_multiple_order_items(file_id: my_file.id), 
-                 method: :delete do %>
-                *
-              <% end %> 
+             
               
               
             </th>
@@ -63,7 +50,8 @@
     </div>
 
     <div class="float-right">
-      <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button>
+      <!--<button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button>-->
+      <%= link_to "Pokračovat v nákupu", shop_path, class: "btn btn-lg btn-default md-btn-flat mt-2 mr-3" %>
       <button type="button" class="btn btn-lg btn-primary mt-2">Checkout</button>
     </div>
 
