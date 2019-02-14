@@ -17,11 +17,21 @@
 /storage/*
 !/storage/.keep
 
-#/node_modules
+# Ignore node_modules
+/node_modules
+
+# Ignore yarn files
+yarn-debug.log*
+.yarn-integrity
 /yarn-error.log
 
 /public/assets
 .byebug_history
+
+# Ignore precompiled javascript packs
+/public/packs
+/public/packs-test
+/public/assets
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
