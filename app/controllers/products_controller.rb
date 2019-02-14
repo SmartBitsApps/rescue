@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   end
   
   def all
-    @products = Product.all.includes(:variants).order(:title)
+    @products = Product.all.includes(:variants).order(:title).paginate(:page => params[:page], :per_page => 9)
   end
 
 end
