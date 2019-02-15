@@ -1,0 +1,56 @@
+<div class="col-sm-6 col-xl-4 text-center p-4">
+  <div class="clearfix">
+    <a href="#" class="shop-tooltip float-right text-lightest" title="Add to wishlist">
+      <i class="ion ion-ios-heart"></i>
+    </a>
+    <a href="#" class="shop-tooltip float-right text-lightest mr-3" title="Share">
+      <i class="ion ion-md-share"></i>
+    </a>
+  </div>
+  <a href="#" class="d-block">
+    <!--<img src="assets/img/uikit/iwatch.jpg" class="mb-2" alt style="max-width: 75%; max-height: 200px">-->
+    <!--<img src="assets/img/uikit/iwatch.jpg" class="mb-2" alt style="max-width: 75%; max-height: 200px">-->
+    <%= image_tag(product.image.medium.url, class: "mb-2", style: "max-width: 75%; max-height: 200px") %>
+  </a>
+  <h6 class="font-weight-normal">
+    <!--<a href="#" class="text-dark"><%#= product.title %></a>-->
+    <%= link_to product.title, product_path(product), class: "text-dark" %>
+  </h6>
+  <div class="mb-3">
+    <div class="ui-stars">
+      <div class="ui-star filled">
+        <i class="ion ion-md-star"></i>
+        <i class="ion ion-md-star"></i>
+      </div>
+      <div class="ui-star filled">
+        <i class="ion ion-md-star"></i>
+        <i class="ion ion-md-star"></i>
+      </div>
+      <div class="ui-star filled">
+        <i class="ion ion-md-star"></i>
+        <i class="ion ion-md-star"></i>
+      </div>
+      <div class="ui-star filled">
+        <i class="ion ion-md-star"></i>
+        <i class="ion ion-md-star"></i>
+      </div>
+      <div class="ui-star half-filled">
+        <i class="ion ion-md-star"></i>
+        <i class="ion ion-md-star"></i>
+      </div>
+    </div>
+    &nbsp;
+    <a href="#" class="text-muted small">55</a>
+  </div>
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="font-weight-semibold"><%= number_to_currency(product.price) %> </div>
+    <div class="ml-4">
+      <!--<button type="button" class="btn btn-outline-primary btn-sm text-expanded">DO KOŠÍKU</button>-->
+      <%#= form_tag order_items_path do %>
+        <%#= hidden_field_tag :product_id, product.id %>
+        <%#= hidden_field_tag :quantity, 1 %>
+        <%#= submit_tag "DO KOŠÍKU", class: "btn btn-outline-primary btn-sm text-expanded" %>
+      <%# end %>
+    </div>
+  </div>
+</div>
