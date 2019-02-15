@@ -14,8 +14,8 @@
     </div>
   </td>
   <td class="text-right font-weight-semibold align-middle p-4"><%= number_to_currency order_item.product.price %></td>
-  <td class="align-middle p-4"><input type="text" class="form-control text-center" value="2"></td>
-  <td class="text-right font-weight-semibold align-middle p-4">$115.1</td>
+  <td class="align-middle p-4"><input type="text" class="form-control text-center" value="<%= order_item.quantity %>"></td>
+  <td class="text-right font-weight-semibold align-middle p-4"><%= number_to_currency(order_item.product.price * order_item.quantity) %></td>
   <td class="text-center align-middle px-0">
     
     <%= link_to order_item_path(order_item), method: :delete, class: "shop-tooltip close float-none text-danger" do %>

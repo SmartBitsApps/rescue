@@ -23,7 +23,9 @@ class ShoppingCart
 
     order_item.price = product.price
     order_item.quantity = quantity
-
+    
+    order.sub_total = (product.price * quantity).to_a
+    
     order_item.save
   end
 
