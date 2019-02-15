@@ -20,8 +20,8 @@
   <!-- <%#= stylesheet_link_tag 'fontawesome.css', media: 'all', 'data-turbolinks-track': 'reload' %> -->
   <%= stylesheet_link_tag 'ionicons.css', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'linearicons.css', media: 'all', 'data-turbolinks-track': 'reload' %> 
-  <!-- <%#= stylesheet_link_tag 'open-iconic.css', media: 'all', 'data-turbolinks-track': 'reload' %> -->
-  <!-- <%#= stylesheet_link_tag 'pe-icon-7-stroke.css', media: 'all', 'data-turbolinks-track': 'reload' %> -->
+  <%= stylesheet_link_tag 'open-iconic.css', media: 'all', 'data-turbolinks-track': 'reload' %> 
+  <%= stylesheet_link_tag 'pe-icon-7-stroke.css', media: 'all', 'data-turbolinks-track': 'reload' %> 
 
   <!-- Core stylesheets -->
   <%#= stylesheet_link_tag 'bootstrap.css', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -37,7 +37,7 @@
   <%= javascript_include_tag 'layout-helpers.js', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'material-ripple.js', 'data-turbolinks-track': 'reload' %>
 
-  <!-- jQuery -->
+  <!-- jQuery --
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <!-- Libs -->
@@ -62,8 +62,11 @@
   <%#= javascript_include_tag 'bootstrap.js', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'sidenav.js', 'data-turbolinks-track': 'reload' %>
   <!--<%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>-->
-  <!--<%#= javascript_include_tag 'pace.js', 'data-turbolinks-track': 'reload' %>-->
+  <%= javascript_include_tag 'pace.js', 'data-turbolinks-track': 'reload' %>
   
+  <!-- Page -->
+  
+  <%= stylesheet_link_tag 'pages/authentication.css', media: 'all', 'data-turbolinks-track': 'reload' %>
   
 
   <%= yield :head %>
