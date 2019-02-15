@@ -56,6 +56,11 @@ gem 'will_paginate-bootstrap4'
 # forms
 gem 'simple_form', '~> 4.1'
 
+# images
+#gem 'gravatar_image_tag', '~> 1.2'
+gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+gem 'mini_magick', '~> 4.9', '>= 4.9.2'
+
 # Autoprefixer
 gem "autoprefixer-rails"
 
