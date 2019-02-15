@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :products
-  devise_for :users
- 
+  
+  #devise_for :users, controllers: { sessions: 'users/sessions' } do
+  #  get 'sign_in', to: 'user/sessions#new'
+  #end
+  
+  devise_for :users, controllers: { sessions: 'users/sessions' }
   #get '/cart', to: 'order_items#index'
   #resources :order_items, path: '/cart/items' do
   #  collection do
