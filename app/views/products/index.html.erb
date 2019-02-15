@@ -18,14 +18,14 @@
 
           <hr class="d-sm-none order-2 w-100 m-0">
 
-          <div class="order-1 order-sm-2 px-4">
-            <button type="button" class="btn icon-btn btn-outline-primary borderless my-2">
-              <span class="ion ion-md-apps"></span>
-            </button>
-            <button type="button" class="btn icon-btn btn-outline-default borderless my-2">
-              <span class="ion ion-md-list"></span>
-            </button>
-          </div>
+          <!--<div class="order-1 order-sm-2 px-4">-->
+          <!--  <button type="button" class="btn icon-btn btn-outline-primary borderless my-2">-->
+          <!--    <span class="ion ion-md-apps"></span>-->
+          <!--  </button>-->
+          <!--  <button type="button" class="btn icon-btn btn-outline-default borderless my-2">-->
+          <!--    <span class="ion ion-md-list"></span>-->
+          <!--  </button>-->
+          <!--</div>-->
         </div>
         <!-- / Nav -->
 
@@ -43,7 +43,7 @@
           <ul class="pagination flex-wrap justify-content-center">
           
             
-            <%#= will_paginate @products,
+            <%= will_paginate @products,
                               renderer: WillPaginate::ActionView::BootstrapLinkRenderer,
                               :style => 'page-item',
                               :previous_label => '&laquo;',

@@ -34,7 +34,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
   
   version :medium do
-    process resize_to_fit: [500, 500]
+    process resize_and_pad(500, 500, background = "#F8F8F8", gravity = 'Center')
   end
 
   version :default do
