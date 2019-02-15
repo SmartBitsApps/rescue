@@ -8,8 +8,8 @@
       <%= link_to "ArenaShop", root_path, class: "navbar-brand text-large font-weight-bolder line-height-1 py-3" %>
 
       <div class="navbar-text py-lg-3 pl-3 mr-auto">
-        <a href="#"><i class="ion ion-logo-twitter text-twitter align-middle"></i></a>
-        <a class="ml-3" href="#"><i class="ion ion-logo-facebook text-facebook align-middle"></i></a>
+        <!--<a href="#"><i class="ion ion-logo-twitter text-twitter align-middle"></i></a>-->
+        <!--<a class="ml-3" href="#"><i class="ion ion-logo-facebook text-facebook align-middle"></i></a>-->
       </div>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".shop-header">
@@ -50,12 +50,12 @@
             <a class="nav-link dropdown-toggle hide-arrow text-nowrap ml-lg-2" href="#" data-toggle="dropdown">
               <i class="ion ion-md-basket navbar-icon align-middle"></i>
               <span class="badge badge-danger indicator">3<%#= current_cart.items_count %></span>
-              <span class="d-lg-none align-middle">&nbsp; Cart</span>
+              <span class="d-lg-none align-middle">&nbsp; Košík</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
 
               <div class="media align-items-center p-3">
-                <img src="assets/img/uikit/iwatch.jpg" class="d-block ui-w-40" alt="">
+                <img src="assets/uikit/iwatch.jpg" class="d-block ui-w-40" alt="">
                 <div class="media-body small mx-3">
                   <a href="#" class="text-dark font-weight-semibold">Apple iWatch (black)</a>
                   <div class="text-muted">$399.00 &times; 1</div>
@@ -67,7 +67,7 @@
               <hr class="m-0">
 
               <div class="media align-items-center p-3">
-                <img src="assets/img/uikit/backpack.jpg" class="d-block ui-w-40" alt="">
+                <img src="assets/uikit/backpack.jpg" class="d-block ui-w-40" alt="">
                 <div class="media-body small mx-3">
                   <a href="#" class="text-dark font-weight-semibold">HERO ATHLETES BAG</a>
                   <div class="text-muted">$160.00 &times; 1</div>
@@ -79,7 +79,7 @@
               <hr class="m-0">
 
               <div class="media align-items-center p-3">
-                <img src="assets/img/uikit/sunglasses.jpg" class="d-block ui-w-40" alt="">
+                <img src="assets/uikit/sunglasses.jpg" class="d-block ui-w-40" alt="">
                 <div class="media-body small mx-3">
                   <a href="#" class="text-dark font-weight-semibold">WALKING 400 BLUE CAT3</a>
                   <div class="text-muted">$20.55 &times; 2</div>
@@ -92,12 +92,12 @@
 
               <div class="d-flex justify-content-between align-items-center p-3">
                 <div>
-                  <span class="text-muted">Total:</span>&nbsp;
+                  <span class="text-muted">Celkem:</span>&nbsp;
                   <span class="font-weight-bold">$600.10</span>
                 </div>
                 <div>
-                  <button type="button" class="btn btn-default btn-sm md-btn-flat text-expanded">CART</button>
-                  <button type="button" class="btn btn-primary btn-sm md-btn-flat text-expanded ml-1">CHECKOUT</button>
+                  <button type="button" class="btn btn-default btn-sm md-btn-flat text-expanded">Košík</button>
+                  <button type="button" class="btn btn-primary btn-sm md-btn-flat text-expanded ml-1">Objednat</button>
                 </div>
               </div>
 
@@ -106,15 +106,12 @@
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle hide-arrow ml-lg-2" href="#" data-toggle="dropdown">
-              <img src="assets/img/avatars/1.png" alt class="ui-w-30 rounded-circle align-middle">
-              <span class="d-lg-none align-middle">&nbsp; Mike Greene</span>
+              <img src="assets/avatars/1.png" alt class="ui-w-30 rounded-circle align-middle">
+              <span class="d-lg-none align-middle">&nbsp; <%= current_user.first_name %></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a class="dropdown-item" href="#">Account</a>
-              <a class="dropdown-item" href="#">Order list</a>
-              <a class="dropdown-item" href="#">Wishlist</a>
+              <a class="dropdown-item" href="#">Účet</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Logout</a>
               <%= link_to "Odhlásit se", destroy_user_session_path, method: "delete", class: "dropdown-item" %>
             </div>
           </li>
