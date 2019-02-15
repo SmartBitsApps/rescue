@@ -9,7 +9,8 @@
 # require 'faker'
 
 # PRODUCTS_COUNT = 100
-
+u = User.new(first_name: "Martin", last_name: "", email: "test@test.com", password: "password", password_confirmation: "password")
+u.save!
 # MAX_CATEGORIES = 3
 # MAX_VARIANTS = 4
 # VARIANTS_WEIGHT = 0.53
