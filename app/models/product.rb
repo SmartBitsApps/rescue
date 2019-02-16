@@ -1,7 +1,10 @@
 class Product < ApplicationRecord
   mount_uploader :image, ImageUploader
   
+  before_destroy :not_referenced_by_any_line_item
+  
   belongs_to :user, optional: true
+  has_many :line_items
   
   
   validates :title, presence: true
@@ -10,5 +13,14 @@ class Product < ApplicationRecord
   validates :price, numericality: { only_integer: true }, length: { maximum: 7 }
   
   BRAND = %w{ Staropramen Pepsi }
+  
+  private
+  
+    def not_referenced_by_any_line_item
+      unless line_items.empty?
+        errors.add(:base, "Košík není prázdný.")
+        throw :abort
+      end
+    end
   
 end

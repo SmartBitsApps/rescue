@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :products
   
+  resources :carts
+  resources :line_items
+  
+  resources :products
   #devise_for :users, controllers: { sessions: 'users/sessions' } do
   #  get 'sign_in', to: 'user/sessions#new'
   #end
