@@ -1,5 +1,218 @@
-<h1>New Product</h1>
+<% content_for :head do %>
+  <%#= stylesheet_link_tag 'demo.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag '', 'data-turbolinks-track': 'reload' %>
+  
+    <!-- Libs -->
+  <%= stylesheet_link_tag 'select2/select2.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'quill/typography.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'quill/editor.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'bootstrap-daterangepicker/bootstrap-daterangepicker.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'dragula/dragula.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  
+  <!-- Page -->
+  <%= stylesheet_link_tag 'pages/products.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  
+<% end %>
 
-<%= render 'form', product: @product %>
 
-<%= link_to 'Back', products_path %>
+
+  <!-- Layout wrapper -->
+  <!--<div class="layout-wrapper">-->
+  <!--  <div class="layout-inner">-->
+
+
+      <!-- Layout container -->
+      <div class="layout-container">
+
+        <!-- Layout content -->
+        <div class="layout-content">
+
+          <!-- Content -->
+          <%= simple_form_for(@product) do |form| %>
+          <div class="container-fluid flex-grow-1 container-p-y">
+
+            <h4 class="font-weight-bold py-3 mb-4">
+              Nový produkt <span class="text-muted">#3455632</span>
+            </h4>
+
+            <div class="nav-tabs-top nav-responsive-sm">
+              
+              <div class="tab-content">
+                <!-- Basic info -->
+                <div class="tab-pane fade show active" id="item-info">
+
+                  <div class="card-body">
+                  
+                    
+
+                    <div class="form-group">
+                      <label class="form-label">Název</label>
+                      <%= form.text_field :title, class: "form-control" %>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label">Cena</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">Kč</div>
+                        </div>
+                        <%= form.text_field :price, class: "form-control" %>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label">Na skladě</label>
+                      <%= form.text_field :quantity, class: "form-control" %>
+                    </div>
+                    
+                    <div class="form-group">
+                    <%= label_tag  :brand, "Značka", class: "form-label" %>
+                    <%= form.input_field :brand,
+                                  collection: Product::BRAND,
+                                  prompt: "vyber značku ..",
+                                  class: "custom-select"
+                    %>
+                    </div>
+
+
+                  </div>
+                  <hr class="m-0">
+                  
+
+                  <div class="card-body">
+                    <h6 class="small font-weight-semibold mb-4">Meta</h6>
+
+                    <div class="form-group">
+                      <label class="form-label">Název</label>
+                      <input type="text" class="form-control" value="Samsung Galaxy S7 Edge">
+                    </div>
+                    
+                    <div class="field">
+                    
+                    
+                    
+                    <div class="form-group">
+                      <%= form.input :image, as: :file, input_html: { class:"file-input instrument-image" }, label: false, wrapper: false  %>
+            
+                    </div>
+                    
+                    
+                    
+                    
+                    <div class="form-group">
+                      <div class="card-body demo-vertical-spacing-sm">
+                        <label class="custom-file">
+                          <input type="file" class="custom-file-input">
+                          <%= form.hidden_field :image,
+                                          as: :file,
+                                          input_html: { class:"custom-file-input" },
+                                          label: false,
+                                          wrapper: false,
+                                          onchange: "$('#custom-file-label').html(this.files[0].name)"
+                                          %>
+                          <span class="custom-file-label"></span>
+                        </label>
+                      </div>
+                    </div>
+                    
+                  </div>  
+                    
+                    
+                    
+                    
+                   
+                    
+                    
+                    <div class="form-group">
+                      <label class="form-label">Popis</label>
+                      <textarea class="form-control" rows="3">Buy Samsung Galaxy S7 Edge!</textarea>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label">Klíčová slova</label>
+                      <input type="text" class="form-control" value="Mobile, Smartphone, Samsung, Galaxy, S3, Edge">
+                    </div>
+                  
+                  </div>
+
+                </div>
+                <!-- / Basic info -->
+
+              </div>
+            </div>
+
+            <div class="text-right mt-3">
+              <%= link_to "Zrušit", products_path, class: "btn btn-default" %>&nbsp;
+              <%= form.submit "Vytvořit", class: "btn btn-primary" %>
+            </div>
+
+          </div>
+          <!-- / Content -->
+          <% end %>
+
+        </div>
+        <!-- Layout content -->
+
+      </div>
+      <!-- / Layout container -->
+
+    </div>
+
+    <!-- Overlay -->
+    <div class="layout-overlay layout-sidenav-toggle"></div>
+  </div>
+  <!-- / Layout wrapper -->
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+<% content_for :scripts do %>
+  <!-- Libs -->
+  <%= javascript_include_tag 'select2/select2.js', 'data-turbolinks-track': 'reload' %>
+  
+  <script>
+  // Quill does not support IE 10 and below so don't load it to prevent console errors
+  if (typeof document.documentMode !== 'number' || document.documentMode > 10) {
+    document.write('\x3Cscript src="vendor/assets/libs/quill/quill.js">\x3C/script>');
+  }
+  </script>
+  
+  <%= javascript_include_tag 'moment/moment.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'bootstrap-daterangepicker/bootstrap-daterangepicker.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'dragula/dragula.js', 'data-turbolinks-track': 'reload' %>
+
+  <!-- Demo -->
+  <%= javascript_include_tag 'js/demo.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'js/pages_e-commerce_product-edit.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'js/forms_custom-controls.js', 'data-turbolinks-track': 'reload' %>
+
+<% end %>
+
+

@@ -19,6 +19,7 @@ Rails.application.config.assets.precompile += [
 # Precompile core javascripts
 Rails.application.config.assets.precompile += ['javascripts/*.js']
 Rails.application.config.assets.precompile += ['javascripts/extra_pages/*.js']
+Rails.application.config.assets.precompile += ['javascripts/js/*.js']
 
 # Precompile fonts
 Rails.application.config.assets.precompile += ['fonts/*']

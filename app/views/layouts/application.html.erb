@@ -75,6 +75,7 @@
   <div class="page-loader"><div class="bg-primary"></div></div>
   
   <%= content_for?(:content) ? yield(:content) : yield %>
-
+  
+  <%= content_for?(:scripts) ? yield(:scripts) : ""%>
 </body>
 </html>
