@@ -12,8 +12,21 @@
 #c = Cart.new(user_id: User.create(first_name: "Martin", last_name: "", email: "test@test.com", password: "password", password_confirmation: "password").id) 
 #c.save!
 
-u = User.create(first_name: "Martin", last_name: "", email: "test@test.com", password: "password", password_confirmation: "password")
-u.save!
+user = User.create(first_name: "Martin", last_name: "", email: "test@test.com", password: "password", password_confirmation: "password")
+user.save!
+
+
+Product.create!([{
+  title: "Bohemia Sekt Demi Sec 0,75l",
+  description: "Alk. 11% obj.",
+  brand: "BOHEMIA SEKT, s.r.o",
+  price: 150,
+  quantity: 100,
+  image: Rails.root.join("app/assets/images/products/Bohemia_sekt_0,75l_540x540.jpg").open,
+  user_id: user.id
+}])
+
+
 
 # MAX_CATEGORIES = 3
 # MAX_VARIANTS = 4

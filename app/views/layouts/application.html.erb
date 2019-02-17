@@ -71,7 +71,7 @@
   <%= yield :head %>
 </head>
 <body>
-<%= current_user.first_name %> | <%= @cart.to_s if @cart %> | <%#= @cart.line_items.size %> | <%#= session[:cart_id] %> | <%#= cookies.encrypted[:cart_id].to_s %>
+<%= current_user.first_name %> | Cart.to_s: <%= @cart.to_s if @cart %> | Cart.id: <%#= @cart.id %> | Cart.items.total: <%= total_cart_items %> | <%#= session[:cart_id] %> | <%#= cookies.encrypted[:cart_id].to_s %>
   <div class="page-loader"><div class="bg-primary"></div></div>
   
   <%= content_for?(:content) ? yield(:content) : yield %>

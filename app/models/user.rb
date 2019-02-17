@@ -8,9 +8,7 @@ class User < ApplicationRecord
   has_many :products
   has_one :cart, dependent: :destroy
   
-  
-  
-
+  # Create cart for new user
   def init_cart
     self.create_cart!
   end

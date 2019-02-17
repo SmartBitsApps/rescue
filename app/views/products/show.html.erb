@@ -1,3 +1,134 @@
+<div class="btn-group">
+<%= link_to "Zpět", products_path, class: "btn btn-small" %> 
+<% if current_user.id == @product.user_id %>
+  <%= link_to 'Upravit', edit_product_path(@product), class: "btn btn-small" %> 
+<% end %>
+</div>
+  <div class="container px-3 my-5">
+
+    <div class="row no-gutters">
+      <div class="col-lg-5 col-xl-4 text-center">
+
+        <!-- Lightbox template -->
+        <div id="shop-preview-lightbox" class="blueimp-gallery blueimp-gallery-controls">
+          <div class="slides"></div>
+          <h3 class="title"></h3>
+          <a class="prev">‹</a>
+          <a class="next">›</a>
+          <a class="close">×</a>
+          <a class="play-pause"></a>
+        </div>
+
+        <!-- Preview -->
+        <a id="shop-preview-image" href="#" class="img-thumbnail ui-bordered mb-4">
+          <span class="img-thumbnail-overlay bg-white opacity-75"></span>
+          <span class="img-thumbnail-content text-primary text-xlarge"><i class="ion ion-ios-search"></i></span>
+          <img src="assets/imgages/products/Bohemia_sekt_0,75l_540x540.jpg" alt class="img-fluid">
+        </a>
+
+        <!-- Preview slider -->
+        <div class="position-relative px-4 mx-auto" style="max-width: 200px;">
+          <div id="shop-preview-slider-next" class="swiper-button-next custom-icon text-big mr--3"><i class="ion ion-ios-arrow-forward text-muted"></i></div>
+          <div id="shop-preview-slider-prev" class="swiper-button-prev custom-icon text-big ml--3"><i class="ion ion-ios-arrow-back text-muted"></i></div>
+
+          <div class="swiper-container" id="shop-preview-slider">
+            <div class="swiper-wrapper">
+              <a href="#" class="swiper-slide d-block border-primary ui-bordered">
+                <img src="assets/imgages/products/Bohemia_sekt_0,75l_540x540.jpg" class="img-fluid" alt>
+              </a>
+              <a href="#" class="swiper-slide d-block ui-bordered">
+                <img src="assets/img/uikit/s7edge-2.jpg" class="img-fluid" alt>
+              </a>
+              <a href="#" class="swiper-slide d-block ui-bordered">
+                <img src="assets/img/uikit/s7edge-3.jpg" class="img-fluid" alt>
+              </a>
+              <a href="#" class="swiper-slide d-block ui-bordered">
+                <img src="assets/img/uikit/s7edge-4.jpg" class="img-fluid" alt>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-7 col-xl-8 py-5 pt-lg-0 pl-lg-5">
+
+        <!--<a href="#" class="shop-tooltip float-right text-lighter" title="Add to wishlist"><i class="ion ion-ios-heart"></i></a>-->
+        <!--<a href="#" class="shop-tooltip float-right text-lighter mr-3" title="Share"><i class="ion ion-md-share"></i></a>-->
+
+        <h3><%= @product.title %></h3>
+
+        <div class="mb-4">
+        </div>
+
+        <h3 class="m-0"><strong><%= number_to_currency(@product.price) %></strong></h3>
+
+        <table class="table my-4">
+          <tbody>
+            
+            <hr>
+            <tr class="col-md style="width: 110px"">
+                <p><span class="text-muted">Výrobce:</span>&nbsp; <%= @product.brand %></p>
+                <p><span class="text-muted">Složení:</span>&nbsp; Obsahuje : Oxid siřičitý/siřičitany</p>
+                <p><span class="text-muted">Země původu:</span>&nbsp; Česká republika</p>
+                <p><span class="text-muted">Druh alkoholu:</span>&nbsp; Víno</p>
+            </tr>
+            <tr>
+              <td class="border-0 text-muted align-middle align-middle">Počet:</td>
+              <td class="border-0">
+                <div class="input-group input-group-sm" style="width: 90px">
+                  <span class="input-group-prepend">
+                    <button class="btn btn-default btn-sm icon-btn md-btn-flat px-0" type="button">-</button>
+                  </span>
+                  <input type="text" value="1" class="form-control text-center">
+                  <span class="input-group-append">
+                    <button class="btn btn-default btn-sm icon-btn md-btn-flat px-0" type="button">+</button>
+                  </span>
+                </div>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+
+        <button type="button" class="btn btn-primary btn-lg">+ <span class="ion ion-md-cart"></span> &nbsp; Přidat do košíku</button> &nbsp;
+      </div>
+
+    </div>
+
+  </div>
+
+  
+
+  
+
+  <!-- Core scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="assets/vendor/libs/popper/popper.js"></script>
+  <script src="assets/vendor/js/bootstrap.js"></script>
+
+  <!-- Libs -->
+  <script src="assets/vendor/js/mega-dropdown.js"></script></body>
+  <script src="assets/vendor/libs/swiper/swiper.js"></script>
+  <script src="assets/vendor/libs/blueimp-gallery/gallery.js"></script>
+  <script src="assets/vendor/libs/blueimp-gallery/gallery-fullscreen.js"></script>
+
+  <!-- Page -->
+  <script src="assets/js/shop.js"></script>
+</html>
+
+
+
+
+
+
+
+
+<%#= link_to 'Přidat do košíku', current_user.cart.add_product(@product), method: :put %>
+<%#= link_to 'Přidat do košíku', @line_item(product_id: @product.id, cart_id: @cart.id, quantity: 1), method: :put %>
+<%= button_to 'Add to cart', line_items_path(product_id: @product), class: 'button is-warning add-to-cart' %>
+
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
