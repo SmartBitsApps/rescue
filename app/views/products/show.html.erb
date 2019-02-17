@@ -90,7 +90,10 @@
           </tbody>
         </table>
 
-        <button type="button" class="btn btn-primary btn-lg">+ <span class="ion ion-md-cart"></span> &nbsp; Přidat do košíku</button> &nbsp;
+        <!--<button type="button" class="btn btn-primary btn-lg">+ <span class="ion ion-md-cart"></span> &nbsp; Přidat do košíku</button> &nbsp;-->
+        <%= button_to line_items_path(product_id: @product), class: 'btn btn-primary btn-lg' do %>
+          + <span class="ion ion-md-cart"></span> &nbsp; Přidat do košíku
+        <% end %>
       </div>
 
     </div>
@@ -99,62 +102,15 @@
 
   
 
+  <% content_for :scripts do %>
+    <!-- additional scripts -->
+    <%= javascript_include_tag 'mega-dropdown.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'swiper/swiper.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'blueimp-gallery/gallery.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'blueimp-gallery/gallery-fullscreen.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'extra_pages/shop.js', 'data-turbolinks-track': 'reload' %>
+  <% end %>
+
   
-
-  <!-- Core scripts -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="assets/vendor/libs/popper/popper.js"></script>
-  <script src="assets/vendor/js/bootstrap.js"></script>
-
-  <!-- Libs -->
-  <script src="assets/vendor/js/mega-dropdown.js"></script></body>
-  <script src="assets/vendor/libs/swiper/swiper.js"></script>
-  <script src="assets/vendor/libs/blueimp-gallery/gallery.js"></script>
-  <script src="assets/vendor/libs/blueimp-gallery/gallery-fullscreen.js"></script>
-
-  <!-- Page -->
-  <script src="assets/js/shop.js"></script>
 </html>
 
-
-
-
-
-
-
-
-<%#= link_to 'Přidat do košíku', current_user.cart.add_product(@product), method: :put %>
-<%#= link_to 'Přidat do košíku', @line_item(product_id: @product.id, cart_id: @cart.id, quantity: 1), method: :put %>
-<%= button_to 'Add to cart', line_items_path(product_id: @product), class: 'button is-warning add-to-cart' %>
-
-
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Brand:</strong>
-  <%= @product.brand %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @product.quantity %>
-</p>
-<%= link_to 'Přidat do košíku', line_items_path(product_id: @product) %> |
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>

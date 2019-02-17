@@ -37,7 +37,7 @@ class LineItemsController < ApplicationController
         format.html { redirect_to cart_path, notice: 'Položka přidána do košíku.' }
         format.json { render :show, status: :created, location: @line_item }
       else
-        format.html { render :new }
+        format.html { redirect_to :back, warning: 'Oops, chyba při ukládání položky do košíku.' }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
@@ -60,7 +60,7 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1
   # DELETE /line_items/1.json
   def destroy
-    @cart = Cart.find(session[:cart_id])
+    
     @line_item.destroy
     respond_to do |format|
       format.html { redirect_to cart_path(@cart), notice: 'Line item was successfully destroyed.' }
