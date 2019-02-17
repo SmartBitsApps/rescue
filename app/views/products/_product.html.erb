@@ -46,6 +46,9 @@
     <div class="font-weight-semibold"><%= number_to_currency(product.price) %> </div>
     <div class="ml-4">
       <!--<button type="button" class="btn btn-outline-primary btn-sm text-expanded">DO KOŠÍKU</button>-->
+      <%= button_to line_items_path(product_id: product), class: 'btn btn-outline-primary btn-sm text-expanded' do %>
+          + <span class="ion ion-md-cart"></span> &nbsp; Přidat do košíku
+        <% end %>
       <%#= form_tag order_items_path do %>
         <%#= hidden_field_tag :product_id, product.id %>
         <%#= hidden_field_tag :quantity, 1 %>
