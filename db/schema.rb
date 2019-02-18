@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_02_17_213934) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.integer "status", default: 0, null: false
+    t.index ["status"], name: "index_carts_on_status"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
@@ -34,21 +35,27 @@ ActiveRecord::Schema.define(version: 2019_02_17_213934) do
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.integer "order_id"
-    t.integer "product_id"
+    t.bigint "order_id"
+    t.bigint "product_id"
     t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "brand"
-    t.decimal "price"
+    t.decimal "price", precision: 5, scale: 2, default: "0.0"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -73,4 +80,6 @@ ActiveRecord::Schema.define(version: 2019_02_17_213934) do
   add_foreign_key "carts", "users"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "products"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "products"
 end

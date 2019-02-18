@@ -24,7 +24,35 @@ Product.create!([{
   quantity: 100,
   image: Rails.root.join("app/assets/images/products/Bohemia_sekt_0,75l_540x540.jpg").open,
   user_id: user.id
-}])
+  },
+  {
+  title: "Johnnie Walker Red label skotská whisky 0,7l",
+  description: "Alk. 40 % obj.",
+  brand: "Stock Plzeň-Božkov s.r.o",
+  price: 300,
+  quantity: 100,
+  image: Rails.root.join("app/assets/images/products/Johnnie_Walker_540x540.jpg").open,
+  user_id: user.id
+  },
+  {
+  title: "Stock Napoleon Ambassador 0,7l",
+  description: "Alk. 28% obj.",
+  brand: "Stock Plzeň-Božkov s.r.o",
+  price: 174,
+  quantity: 100,
+  image: Rails.root.join("app/assets/images/products/Napoleon_Ambassador_0.7l_540x540.jpg").open,
+  user_id: user.id
+  },
+  {
+  title: "Amundsen Premium vodka 0,5l",
+  description: "Alk. 37.5 % vol.",
+  brand: "Stock Plzeň-Božkov s.r.o",
+  price: 130,
+  quantity: 100,
+  image: Rails.root.join("app/assets/images/products/Amundsen_Premium_0.5l_540x540.jpg").open,
+  user_id: user.id
+  }
+  ])
 
 
 

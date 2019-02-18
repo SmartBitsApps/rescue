@@ -20,6 +20,15 @@ class Cart < ApplicationRecord
     # current_item and return
   end
   
+  def checkout
+    create_new_order
+    copy_cart_line_items_to_order_items
+    save_order
+    clean_cart
+    redirect_to_root
+    
+  end
+  
   
   def total_price
     line_items.to_a.sum { |item| item.total_price }

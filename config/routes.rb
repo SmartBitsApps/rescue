@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   
+  
   resource :cart
   resources :line_items
+  resources :orders do
+    resources :order_items
+  end
   
   resources :products
   #devise_for :users, controllers: { sessions: 'users/sessions' } do

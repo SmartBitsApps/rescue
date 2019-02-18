@@ -1,21 +1,43 @@
-class OrderController < ApplicationController
+class OrdersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_order
-  before_action :set_order
+  before_action :set_order, only: [:show, :edit, :update, :destroy]
   
- 
-
+  # def new
+  #   @order_item = OrderItem.new
+  # end
+  
+  
+  def show
+    @order_items = @order.order_items
+  end
 
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
+    # @order = Order.new(order_params)
+    #cart = current_user.cart
+    #@order = Order.build(customer_id: cart.user_id, status: 0)
+    #@new_order = @order.add_order_items_to_order(cart)
+    
+  
+    #cart = Cart.find(params[:cart_id])
+    @order = Order.create(customer_id: @cart.user_id, status: 0)
+    @cart.line_items.each do |item|
+      @order.order_items.build(product: item.product, quantity: item.quantity)
+    end
+    # throw(:abort) if @cart.line_items.map { |item| item.quantity }.sum.equal?(@order.total_order_items)
+     
+    
+    #@cart.line_items.destroy_all
+    destroy_all_cart_line_items
+   
     
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'order was successfully created.' }
+        format.html { redirect_to products_path, notice: 'Košík byl odeslán.' }
         format.json { render :show, status: :created, location: @order }
       else
-        format.html { render :new }
+        format.html { redirect_to cart_path, notice: 'Oops.. stala se chyba, košík nebyl odeslán.'}
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
@@ -59,6 +81,19 @@ class OrderController < ApplicationController
     def invalid_order
       logger.error "Attempt to access ivalid order #{params[:id]}"
       redirect_to root_path, notice: "Tato objednávka neexistuje."
+    end
+    
+    def destroy_all_cart_line_items
+      #check for same sum of cart items
+      c = @cart.line_items.map { |item| item.quantity }.sum
+      o = @order.order_items.map { |item| item.quantity }.sum
+      if c.equal?(o)
+        @cart.line_items.destroy_all
+      else
+        ErrorLogger.log(Time.now, "Something went wrong! #{@cart.line_items.to_s}")
+      end
+    
+    
     end
 end
 

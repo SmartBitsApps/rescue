@@ -17,7 +17,7 @@ class Product < ApplicationRecord
   private
   
     def not_referenced_by_any_line_item
-      unless line_items.empty?
+      unless line_items.nil?
         errors.add(:base, "Košík není prázdný.")
         throw :abort
       end

@@ -1,4 +1,18 @@
 class Order < ApplicationRecord
-  has_many :order_items
+  has_many :order_items, dependent: :destroy
   
+  enum status: [ :created, :closed ]
+  
+  #def add_order_items_to_order(cart)
+  #  #order = Order.new(customer_id: cart.user_id, status: 0)
+  #  order = Order.find_by(params[:order_id])
+  #  cart.line_items.each do |item|
+  #    order.order_items.build(product: item.product, quantity: item.quantity)
+  #  end
+  #  order.save!
+  #  
+  #  cart.line_items.destroy_all
+  #  
+  #  @new_order = order
+  #end
 end

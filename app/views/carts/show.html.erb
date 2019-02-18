@@ -40,10 +40,10 @@
         <!--<input type="text" placeholder="ABC" class="form-control">-->
       </div>
       <div class="d-flex">
-        <!--<div class="text-right mt-4 mr-5">-->
-        <!--  <label class="text-muted font-weight-normal m-0">Discount</label>-->
-        <!--  <div class="text-large"><strong>$20</strong></div>-->
-        <!--</div>-->
+        <div class="text-right mt-4 mr-5">
+          <!--<label class="text-muted font-weight-normal m-0">Discount</label>-->
+          <!--<div class="text-large"><strong>$20</strong></div>-->
+        </div>
         <div class="text-right mt-4">
           <label class="text-muted font-weight-normal m-0">Cena celkem</label>
           <div class="text-large"><strong><%= @cart.total_price %></strong></div>
@@ -53,23 +53,14 @@
 
     <div class="float-right">
       <!--<button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button>-->
-      <%= link_to "Pokračovat v nákupu", products_path, class: "btn btn-lg btn-default md-btn-flat mt-2 mr-3" %>
-      <button type="button" class="btn btn-lg btn-primary mt-2">Koupit</button>
+      <%= link_to "Zpět", products_path, class: "btn btn-lg btn-default md-btn-flat mt-2 mr-3" %>
+      <%= link_to orders_path(:cart_id => @cart.id), class: 'btn btn-primary btn-lg', :method => 'POST' do %>
+          + <span class="ion ion-md-cart"></span> &nbsp; Odeslat košík
+      <% end %>
+      
+      <%#= link_to 'Odeslat košík', orders_path(:cart_id => @cart.id), :method => 'POST' %>
+      <!--<button type="button" class="btn btn-lg btn-primary mt-2">Odeslat objednávku</button>-->
     </div>
 
   </div>
   <!-- / Cart -->
-
-
-
-
-
-
-
-
-
-
-
-
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', products_path %>

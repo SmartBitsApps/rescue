@@ -14,6 +14,9 @@ class CartsController < ApplicationController
 #  # GET /carts/1.json
   def show
     @line_items = @cart.line_items
+    if @line_items.empty?
+      redirect_to root_path
+    end
   end
 #
 #  # GET /carts/new
