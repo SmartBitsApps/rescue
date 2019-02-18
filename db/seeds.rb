@@ -12,7 +12,12 @@
 #c = Cart.new(user_id: User.create(first_name: "Martin", last_name: "", email: "test@test.com", password: "password", password_confirmation: "password").id) 
 #c.save!
 
-user = User.create(first_name: "Martin", last_name: "", email: "test@test.com", password: "password", password_confirmation: "password")
+user = User.create(first_name: "Martin",
+                    last_name: "",
+                    email: "test@test.com",
+                    password: "password",
+                    password_confirmation: "password",
+                    avatar: Rails.root.join("app/assets/images/avatars/1.png").open,)
 user.save!
 
 

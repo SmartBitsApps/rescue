@@ -48,8 +48,8 @@
           
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle hide-arrow ml-lg-2" href="#" data-toggle="dropdown">
-              <img src="assets/img/avatars/1.png" alt class="ui-w-30 rounded-circle align-middle">
-              <%#= image_tag(current_user.image.thumb.url, class: "ui-w-30 rounded-circle align-middle") if current_user.image? %>
+              <!--<img src="assets/img/avatars/1.png" alt class="ui-w-30 rounded-circle align-middle">-->
+              <%= image_tag(current_user.avatar.thumb.url, class: "ui-w-30 rounded-circle align-middle") if current_user.avatar? %>
               <span class="d-lg-none align-middle">&nbsp; <%= current_user.first_name %></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
