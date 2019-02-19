@@ -64,7 +64,7 @@
         <div class="mb-4">
         </div>
 
-        <h3 class="m-0"><strong><%= number_to_currency(@product.price) %></strong></h3>
+        <h3 class="m-0"><strong><%= number_to_currency(@product.price, options = {unit: "Kč", separator: ",", delimiter: "", format: "%n%u"}) %></strong></h3>
 
         <table class="table my-4">
           <tbody>

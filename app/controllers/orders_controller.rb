@@ -5,9 +5,12 @@ class OrdersController < ApplicationController
   # def new
   #   @order_item = OrderItem.new
   # end
-  
+  def index
+    @orders = Order.where(customer_id: current_user.id)
+  end
   
   def show
+    
     @order_items = @order.order_items
   end
 

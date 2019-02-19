@@ -46,7 +46,7 @@
         </div>
         <div class="text-right mt-4">
           <label class="text-muted font-weight-normal m-0">Cena celkem</label>
-          <div class="text-large"><strong><%= @cart.total_price %></strong></div>
+          <div class="text-large"><strong><%= number_to_currency(@cart.total_price, options = {unit: "Kč", separator: ",", delimiter: "", format: "%n%u"}) %></strong></div>
         </div>
       </div>
     </div>

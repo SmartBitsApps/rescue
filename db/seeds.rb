@@ -56,6 +56,78 @@ Product.create!([{
   quantity: 100,
   image: Rails.root.join("app/assets/images/products/Amundsen_Premium_0.5l_540x540.jpg").open,
   user_id: user.id
+  },
+  {
+  title: "2nd Bohemia Sekt Demi Sec 0,75l",
+  description: "Alk. 11% obj.",
+  brand: "BOHEMIA SEKT, s.r.o",
+  price: 150,
+  quantity: 100,
+  image: Rails.root.join("app/assets/images/products/Bohemia_sekt_0,75l_540x540.jpg").open,
+  user_id: user.id
+  },
+  {
+  title: "2nd Johnnie Walker Red label skotská whisky 0,7l",
+  description: "Alk. 40 % obj.",
+  brand: "Stock Plzeň-Božkov s.r.o",
+  price: 300,
+  quantity: 100,
+  image: Rails.root.join("app/assets/images/products/Johnnie_Walker_540x540.jpg").open,
+  user_id: user.id
+  },
+  {
+  title: "2nd Stock Napoleon Ambassador 0,7l",
+  description: "Alk. 28% obj.",
+  brand: "Stock Plzeň-Božkov s.r.o",
+  price: 174,
+  quantity: 100,
+  image: Rails.root.join("app/assets/images/products/Napoleon_Ambassador_0.7l_540x540.jpg").open,
+  user_id: user.id
+  },
+  {
+  title: "2nd Amundsen Premium vodka 0,5l",
+  description: "Alk. 37.5 % vol.",
+  brand: "Stock Plzeň-Božkov s.r.o",
+  price: 130,
+  quantity: 100,
+  image: Rails.root.join("app/assets/images/products/Amundsen_Premium_0.5l_540x540.jpg").open,
+  user_id: user.id
+  },
+  {
+  title: "2rd Bohemia Sekt Demi Sec 0,75l",
+  description: "Alk. 11% obj.",
+  brand: "BOHEMIA SEKT, s.r.o",
+  price: 150,
+  quantity: 100,
+  image: Rails.root.join("app/assets/images/products/Bohemia_sekt_0,75l_540x540.jpg").open,
+  user_id: user.id
+  },
+  {
+  title: "3rd Johnnie Walker Red label skotská whisky 0,7l",
+  description: "Alk. 40 % obj.",
+  brand: "Stock Plzeň-Božkov s.r.o",
+  price: 300,
+  quantity: 100,
+  image: Rails.root.join("app/assets/images/products/Johnnie_Walker_540x540.jpg").open,
+  user_id: user.id
+  },
+  {
+  title: "2rd Stock Napoleon Ambassador 0,7l",
+  description: "Alk. 28% obj.",
+  brand: "Stock Plzeň-Božkov s.r.o",
+  price: 174,
+  quantity: 100,
+  image: Rails.root.join("app/assets/images/products/Napoleon_Ambassador_0.7l_540x540.jpg").open,
+  user_id: user.id
+  },
+  {
+  title: "3rd Amundsen Premium vodka 0,5l",
+  description: "Alk. 37.5 % vol.",
+  brand: "Stock Plzeň-Božkov s.r.o",
+  price: 130,
+  quantity: 100,
+  image: Rails.root.join("app/assets/images/products/Amundsen_Premium_0.5l_540x540.jpg").open,
+  user_id: user.id
   }
   ])
 

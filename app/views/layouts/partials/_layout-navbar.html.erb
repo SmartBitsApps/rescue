@@ -24,9 +24,9 @@
 
 
 
-          <li class="nav-item"><%= link_to "SHOP", root_path, class: "nav-link small text-expanded px-lg-3" %></li>
+          <li class="nav-item"><%= link_to "Obchod", root_path, class: "nav-link small text-expanded px-lg-3" %></li>
           
-          <li class="nav-item"><a class="nav-link small text-expanded px-lg-3" href="#">BLOG</a></li>
+          <!--<li class="nav-item"><a class="nav-link small text-expanded px-lg-3" href="#">BLOG</a></li>-->
         </ul>
       </div>
       <!-- / Menu -->
@@ -54,6 +54,8 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Moje objednávky", orders_path, class: "dropdown-item" %>
               <div class="dropdown-divider"></div>
               <%= link_to "Odhlásit se", destroy_user_session_path, method: "delete", class: "dropdown-item" %>
             </div>
