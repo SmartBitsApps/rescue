@@ -39,5 +39,8 @@ module Appshop
       Devise::PasswordsController.layout "devise"        
     end
     
+    #config.i18n.default_locale = :cs
+    #config.i18n.fallbacks = [:en]
+    
   end
 end

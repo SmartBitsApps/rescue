@@ -53,7 +53,7 @@
               <span class="d-lg-none align-middle">&nbsp; <%= current_user.first_name %></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a class="dropdown-item" href="#">Účet</a>
+              <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
               <div class="dropdown-divider"></div>
               <%= link_to "Odhlásit se", destroy_user_session_path, method: "delete", class: "dropdown-item" %>
             </div>

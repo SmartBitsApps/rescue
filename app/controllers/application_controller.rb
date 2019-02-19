@@ -7,8 +7,6 @@ class ApplicationController < ActionController::Base
   
   layout 'main/layout-without-sidenav'
   
-  
-  
     # protected
     
     # def configure_permitted_parameters

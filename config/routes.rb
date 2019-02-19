@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
   
   
+  
   resource :cart
   resources :line_items
   resources :orders do
     resources :order_items
   end
+  
+  #get '/dashboard', to: 'dashboard#index'
+  #resource :dashboard, only: [:index], as: :dashboard
+  get 'dashboard', to: 'dashboard#index', as: :dashboard
+  
   
   resources :products
   #devise_for :users, controllers: { sessions: 'users/sessions' } do

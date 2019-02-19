@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en" class="layout-2">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <title><%= @title ? @title + " - " : "" %>Dashboard</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900" rel="stylesheet">
+  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
+ <!-- Icons. Uncomment required icon fonts -->
+  <!-- <%#= stylesheet_link_tag 'fontawesome.css', media: 'all', 'data-turbolinks-track': 'reload' %> -->
+  <%= stylesheet_link_tag 'ionicons.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'linearicons.css', media: 'all', 'data-turbolinks-track': 'reload' %> 
+  <!-- <%#= stylesheet_link_tag 'open-iconic.css', media: 'all', 'data-turbolinks-track': 'reload' %> -->
+  <!-- <%#= stylesheet_link_tag 'pe-icon-7-stroke.css', media: 'all', 'data-turbolinks-track': 'reload' %> -->
+
+   <!-- Core stylesheets -->
+  <%= stylesheet_link_tag 'bootstrap.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'appwork.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'theme-corporate.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'colors.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'uikit.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'pages/demo.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  <!-- Layout helpers -->
+  <%= javascript_include_tag 'layout-helpers.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'material-ripple.js', 'data-turbolinks-track': 'reload' %>
+
+  <!-- Theme settings -->
+  <!-- This file MUST be included after core stylesheets and layout-helpers.js in the <head> section -->
+  <%= javascript_include_tag 'theme-settings.js', 'data-turbolinks-track': 'reload' %>
+
+
+  <!-- Core scripts -->
+  <%= javascript_include_tag 'pace.js', 'data-turbolinks-track': 'reload' %>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+
+  <!-- Libs -->
+  <%= stylesheet_link_tag 'perfect-scrollbar/perfect-scrollbar.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  
+  <%= yield :head %>
+</head>
+
+<body>
+  <div class="page-loader">
+    <div class="bg-primary"></div>
+  </div>
+  
+      
+      <%= yield %>
+  
+  
+  <%= content_for?(:scripts) ? yield(:scripts) : ""%>
+  
+   <!-- Core scripts -->
+  <%= javascript_include_tag 'popper/popper.js', 'data-turbolinks-track': 'reload' %>
+  <%#= javascript_include_tag 'bootstrap.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'sidenav.js', 'data-turbolinks-track': 'reload' %>
+
+  <!-- Libs -->
+  <%= javascript_include_tag 'perfect-scrollbar/perfect-scrollbar.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'chartjs/chartjs.js', 'data-turbolinks-track': 'reload' %>
+
+  <!-- Demo -->
+  <%= javascript_include_tag 'js/demo.js', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'js/dashboards_dashboard-1.js', 'data-turbolinks-track': 'reload' %>
+</body>
+
+</html>
