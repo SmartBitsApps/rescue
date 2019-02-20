@@ -22,9 +22,9 @@ module OrderHelper
     if status["pending"]
       badge_text = "probíhá"
     elsif status["approved"]
-      badge_text = "schváleno"
+      badge_text = "dokončeno"
     else status["rejected"]
-      badge_text = "odmítnuto"
+      badge_text = "zrušeno"
     end
     
     badge_text
