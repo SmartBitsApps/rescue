@@ -1,0 +1,22 @@
+<tr>
+  <th scope="row"><%= order.id %></th>
+  <td><%= order.created_at.strftime("%d.%m.%Y %l:%Mh") %></td>
+  <td><%= total_order_items(order) %></td>
+  <td><%= number_to_currency(order.total_price, options = {precision: 0, unit: "Kč", separator: ",", delimiter: ".", format: "%n %u"}) %></td>
+  <td>
+    <span class="badge badge-outline-<%= order_status_badge(order) %>"><%= order_status_badge_text(order) %></span>
+  </td>
+  <td>
+    <%#= link_to order_path(order), class: "btn btn-default btn-xs icon-btn btn-md-flat order-tooltip", title="Show" do %>
+      <!--<i class="ion ion-md-eye"></i></a>&nbsp;-->
+    <%#x= end %>
+    
+    <%= link_to order_path(order), class: 'btn btn-default btn-xs icon-btn btn-md-flat order-tooltip' do %>
+        <i class="ion ion-md-eye"></i></a>
+    <% end %>
+    
+    <%#= link_to product_path(@product), class: "swiper-slide d-block border-primary ui-bordered" do %>
+                <%#= image_tag(@product.image.default.url, class: "img-fluid") if @product.image? %>
+              <%# end %>
+  </td>
+</tr>

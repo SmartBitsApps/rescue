@@ -19,28 +19,22 @@
             </h4>
 
             <div class="card">
-              <div class="card-datatable table-responsive">
-                <table id="order-list" class="table table-striped table-bordered">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Cena</th>
-                      <th>Datum</th>
-                      <th>Status</th>
-                      <th></th>
-                    </tr>
-                      <tr>
-                      <td>21</td>
-                      <td>210</td>
-                      <td>21</td>
-                      <td>21</td>
-                      
-                      <td>21</td>
-                      
-                    </tr>
-                  </thead>
-                </table>
-              </div>
+              <div class="card-header">Přehled odeslaných objednávek</div>
+              <table class="table card-table">
+                <thead class="thead-light">
+                  <tr>
+                    <th>#</th>
+                    <th>Datum</th>
+                    <th>Počet položek</th>
+                    <th>Cena</th>
+                    <th>Stav</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render partial: "orders/order", collection: @orders %>
+                </tbody>
+              </table>
             </div>
 
           </div>
@@ -60,3 +54,23 @@
     <div class="layout-overlay layout-sidenav-toggle"></div>
   </div>
   <!-- / Layout wrapper -->
+  
+
+
+
+  <!-- Demo -->
+  <script src="assets/js/demo.js"></script>
+  <script src="assets/js/pages_e-commerce_order-list.js"></script>
+  
+  
+  <% content_for :scripts do %>
+    <!-- additional scripts -->
+    <%#= javascript_include_tag 'mega-dropdown.js', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_include_tag 'swiper/swiper.js', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- TODO: solve datatables.js p[a] error-->
+    <%#= javascript_include_tag 'datatables/datatables.js', 'data-turbolinks-track': 'reload' %> 
+    
+    <%= javascript_include_tag 'js/demo.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'js/pages_e-commerce_order-list.js', 'data-turbolinks-track': 'reload' %>
+  <% end %>

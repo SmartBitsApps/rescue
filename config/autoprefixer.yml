@@ -4,3 +4,4 @@ browsers:
   - "Firefox ESR"
   - "Opera 12.1"
   - "ie >= 10"
+  

@@ -46,16 +46,16 @@
         </div>
         <div class="text-right mt-4">
           <label class="text-muted font-weight-normal m-0">Cena celkem</label>
-          <div class="text-large"><strong><%= number_to_currency(@cart.total_price, options = {unit: "Kč", separator: ",", delimiter: "", format: "%n%u"}) %></strong></div>
+          <div class="text-large"><strong><%= number_to_currency(@cart.total_price, options = {precision: 0, unit: "Kč", separator: ",", delimiter: ".", format: "%n %u"}) %></strong></div>
         </div>
       </div>
     </div>
 
     <div class="float-right">
       <!--<button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button>-->
-      <%= link_to "Zpět", products_path, class: "btn btn-lg btn-default md-btn-flat mt-2 mr-3" %>
+      <%= link_to "zpět do obchodu", products_path, class: "btn btn-lg btn-default md-btn-flat mt-2 mr-3" %>
       <%= link_to orders_path(:cart_id => @cart.id), class: 'btn btn-primary btn-lg', :method => 'POST' do %>
-          + <span class="ion ion-md-cart"></span> &nbsp; Odeslat košík
+          <span class="ion ion-md-share-alt"></span> &nbsp; Odeslat objednávku <!--dokončit nákup-->
       <% end %>
       
       <%#= link_to 'Odeslat košík', orders_path(:cart_id => @cart.id), :method => 'POST' %>

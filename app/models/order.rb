@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   has_many :order_items, dependent: :destroy
   
-  enum status: [ :created, :closed ]
+  enum status: [ :pending, :approved, :rejected ]
   
   #def add_order_items_to_order(cart)
   #  #order = Order.new(customer_id: cart.user_id, status: 0)
@@ -15,4 +15,9 @@ class Order < ApplicationRecord
   #  
   #  @new_order = order
   #end
+  
+  def total_price
+    order_items.to_a.sum { |item| item.total_price }
+  end
+  
 end

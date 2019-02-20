@@ -12,8 +12,8 @@ module ApplicationHelper
     return total if total > 0
   end
   
-  def total_order_items
-    total = @order.order_items.map { |item| item.quantity }.sum
+  def total_order_items(order)
+    total = order.order_items.map { |item| item.quantity }.sum
     return total if total > 0
   end
 end

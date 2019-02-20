@@ -14,9 +14,9 @@
       </div>
     </div>
   </td>
-  <td class="text-right font-weight-semibold align-middle p-4"><%= number_to_currency(line_item.product.price, options = {unit: "Kč", separator: ",", delimiter: "", format: "%n%u"}) %></td>
+  <td class="text-right font-weight-semibold align-middle p-4"><%= number_to_currency(line_item.product.price, options = {precision: 0, unit: "Kč", separator: ",", delimiter: ".", format: "%n %u"}) %></td>
   <td class="align-middle p-4"><input type="text" class="form-control text-center" value="<%= line_item.quantity %>"></td>
-  <td class="text-right font-weight-semibold align-middle p-4"><%= number_to_currency((line_item.product.price * line_item.quantity), options = {unit: "Kč", separator: ",", delimiter: "", format: "%n%u"}) %></td>
+  <td class="text-right font-weight-semibold align-middle p-4"><%= number_to_currency((line_item.product.price * line_item.quantity), options = {precision: 0, unit: "Kč", separator: ",", delimiter: ".", format: "%n %u"}) %></td>
   <td class="text-center align-middle px-0">
     
     <%= link_to line_item_path(line_item), method: :delete, class: "shop-tooltip close float-none text-danger" do %>
