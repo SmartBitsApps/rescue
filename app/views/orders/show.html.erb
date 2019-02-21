@@ -24,11 +24,11 @@
           <%= @order.created_at.strftime("%d.%m.%Y %l:%Mh") %>
         </div>
         <div class="col-md-4 mb-3">
-          <div class="text-muted small">Položek</div>
+          <div class="text-muted small">Položek celkem</div>
           <%= total_order_items(@order) %>
         </div>
         <div class="col-md-4 mb-3">
-          <div class="text-muted small">Celkem</div>
+          <div class="text-muted small">Cena</div>
           <h5 class= "font-weight-bold "><%= number_to_currency(@order.total_price, options = {precision: 0, unit: "Kč", separator: ",", delimiter: ".", format: "%n %u"}) %></h5>
         </div>
       </div>

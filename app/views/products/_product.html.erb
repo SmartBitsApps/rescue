@@ -8,17 +8,18 @@
     <!--</a>-->
   <!--</div>-->
   <!--<a href="#" class="d-block">-->
-  <%= link_to product_path(product), class: "d-block" do %>
+  <%= link_to product_path(product), class: "d-block", style: "margin-bottom: 25px;margin-top: 25px;" do %>
     <!--<img src="assets/img/uikit/iwatch.jpg" class="mb-2" alt style="max-width: 75%; max-height: 200px">-->
     <!--<img src="assets/img/uikit/iwatch.jpg" class="mb-2" alt style="max-width: 75%; max-height: 200px">-->
     <%= image_tag(product.image.medium.url, class: "mb-2", style: "max-width: 75%; max-height: 200px") if product.image? %>
     
   <% end %>
   <!--</a>-->
-  <h6 class="font-weight-normal">
+  </hr>
+  <h5 class="font-weight-normal" style="margin-top: 0px;margin-bottom: 2rem;">
     <!--<a href="#" class="text-dark"><%#= product.title %></a>-->
     <%= link_to product.title, product_path(product), class: "text-dark" %>
-  </h6>
+  </h5>
   <div class="mb-3">
     
     </div>

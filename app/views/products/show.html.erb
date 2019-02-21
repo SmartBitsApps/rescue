@@ -71,7 +71,7 @@
             
             <hr>
             <tr class="col-md style="width: 110px"">
-                <p><span class="text-muted">Výrobce:</span>&nbsp; <%= @product.brand %></p>
+                <%= show_non_blank_field "Výrobce", @product.company.title %>
                 <p><span class="text-muted">Složení:</span>&nbsp; Obsahuje : Oxid siřičitý/siřičitany</p>
                 <p><span class="text-muted">Země původu:</span>&nbsp; Česká republika</p>
                 <p><span class="text-muted">Druh alkoholu:</span>&nbsp; Víno</p>

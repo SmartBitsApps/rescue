@@ -12,14 +12,23 @@
 #c = Cart.new(user_id: User.create(first_name: "Martin", last_name: "", email: "test@test.com", password: "password", password_confirmation: "password").id) 
 #c.save!
 
-user = User.create(first_name: "Martin",
+user = User.create!(first_name: "Martin",
                     last_name: "",
                     email: "test@test.com",
                     password: "password",
                     password_confirmation: "password",
                     avatar: Rails.root.join("app/assets/images/avatars/1.png").open,)
-user.save!
 
+
+Company.create!([{
+    title: "Stock Plzeň-Božkov s.r.o"
+  },
+  {
+    title: "Staropramen"
+  },
+  {
+    title: "BOHEMIA SEKT, s.r.o"
+  }])
 
 Product.create!([{
   title: "Bohemia Sekt Demi Sec 0,75l",
@@ -28,6 +37,7 @@ Product.create!([{
   price: 150,
   quantity: 100,
   image: Rails.root.join("app/assets/images/products/Bohemia_sekt_0,75l_540x540.jpg").open,
+  company_id: Company.third.id,
   user_id: user.id
   },
   {
@@ -37,6 +47,7 @@ Product.create!([{
   price: 300,
   quantity: 100,
   image: Rails.root.join("app/assets/images/products/Johnnie_Walker_540x540.jpg").open,
+  company_id: Company.first.id,
   user_id: user.id
   },
   {
@@ -46,6 +57,7 @@ Product.create!([{
   price: 174,
   quantity: 100,
   image: Rails.root.join("app/assets/images/products/Napoleon_Ambassador_0.7l_540x540.jpg").open,
+  company_id: Company.first.id,
   user_id: user.id
   },
   {
@@ -55,6 +67,7 @@ Product.create!([{
   price: 130,
   quantity: 100,
   image: Rails.root.join("app/assets/images/products/Amundsen_Premium_0.5l_540x540.jpg").open,
+  company_id: Company.first.id,
   user_id: user.id
   },
   {
@@ -64,6 +77,7 @@ Product.create!([{
   price: 150,
   quantity: 100,
   image: Rails.root.join("app/assets/images/products/Bohemia_sekt_0,75l_540x540.jpg").open,
+  company_id: Company.third.id,
   user_id: user.id
   },
   {
@@ -73,6 +87,7 @@ Product.create!([{
   price: 300,
   quantity: 100,
   image: Rails.root.join("app/assets/images/products/Johnnie_Walker_540x540.jpg").open,
+  company_id: Company.first.id,
   user_id: user.id
   },
   {
@@ -82,6 +97,7 @@ Product.create!([{
   price: 174,
   quantity: 100,
   image: Rails.root.join("app/assets/images/products/Napoleon_Ambassador_0.7l_540x540.jpg").open,
+  company_id: Company.first.id,
   user_id: user.id
   },
   {
@@ -91,6 +107,7 @@ Product.create!([{
   price: 130,
   quantity: 100,
   image: Rails.root.join("app/assets/images/products/Amundsen_Premium_0.5l_540x540.jpg").open,
+  company_id: Company.first.id,
   user_id: user.id
   },
   {
@@ -100,6 +117,7 @@ Product.create!([{
   price: 150,
   quantity: 100,
   image: Rails.root.join("app/assets/images/products/Bohemia_sekt_0,75l_540x540.jpg").open,
+  company_id: Company.third.id,
   user_id: user.id
   },
   {
@@ -109,6 +127,7 @@ Product.create!([{
   price: 300,
   quantity: 100,
   image: Rails.root.join("app/assets/images/products/Johnnie_Walker_540x540.jpg").open,
+  company_id: Company.first.id,
   user_id: user.id
   },
   {
@@ -118,6 +137,7 @@ Product.create!([{
   price: 174,
   quantity: 100,
   image: Rails.root.join("app/assets/images/products/Napoleon_Ambassador_0.7l_540x540.jpg").open,
+  company_id: Company.first.id,
   user_id: user.id
   },
   {
@@ -127,9 +147,25 @@ Product.create!([{
   price: 130,
   quantity: 100,
   image: Rails.root.join("app/assets/images/products/Amundsen_Premium_0.5l_540x540.jpg").open,
+  company_id: Company.first.id,
   user_id: user.id
   }
   ])
+  
+  
+  @o = Order.create!(customer_id: user.id)
+  
+  
+  
+  2.times do
+    @products = Product.all.size - 1
+    OrderItem.create!(order_id: @o.id, product_id: rand(0..@products), quantity: rand(1..10))
+  end
+  
+  2.times do
+    @products = Product.all.size - 1
+    OrderItem.create!(order_id: @o.id, product_id: rand(0..@products), quantity: rand(1..10))
+  end
 
 
 

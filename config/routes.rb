@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   
   
+  resources :companies
   resource :cart
   resources :line_items
   resources :orders do

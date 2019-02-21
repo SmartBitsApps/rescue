@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   before_destroy :not_referenced_by_any_line_item
   
   belongs_to :user, optional: true
+  belongs_to :company, optional: true
   has_many :line_items
   
   
