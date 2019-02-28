@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 2019_02_21_071521) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.integer "status", default: 0, null: false
+    t.integer "customer_id"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2019_02_21_071521) do
     t.string "title"
     t.text "description"
     t.string "brand"
-    t.integer "price"
+    t.decimal "price", precision: 5, scale: 2, default: "0.0"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

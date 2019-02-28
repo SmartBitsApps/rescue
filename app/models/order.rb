@@ -26,5 +26,8 @@ class Order < ApplicationRecord
     end
   end
   
+
+  
+  
   
 end

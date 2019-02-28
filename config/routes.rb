@@ -6,12 +6,18 @@ Rails.application.routes.draw do
   resource :cart
   resources :line_items
   resources :orders do
+    #member do
+      patch 'update_status'
+    #end
+    #get 'change_status', via: :patch
+    #match "order/:id" => "order#change_status", :via => :post
     resources :order_items
   end
   
   #get '/dashboard', to: 'dashboard#index'
   #resource :dashboard, only: [:index], as: :dashboard
   get 'dashboard', to: 'dashboard#index', as: :dashboard
+  get 'dashboard/orders', to: 'dashboard#orders'
   
   
   resources :products

@@ -1,0 +1,25 @@
+<tr>
+  <td scope="row"><%= order.id %></td>
+  <td><%= order.created_at.strftime("%d.%m.%Y - %H:%Mh") %></td>
+  <td><%= total_order_items(order) %></td>
+  <td><%= number_to_currency(order.total_price, options = {precision: 0, unit: "Kč", separator: ",", delimiter: ".", format: "%n %u"}) %></td>
+  <td>
+    <span class="badge badge-outline-<%= order_status_badge(order) %>"><%= order_status_badge_text(order) %></span>
+  </td>
+  <td>
+    
+      <div class="btn-group">
+        <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Změnit</button>
+        <div class="dropdown-menu">
+          <%= link_to "Schváleno", order_update_status_path(order_id: order.id, status: :approved), method: :patch, class: 'dropdown-item' %>
+          
+          <%= link_to "Probíhá", order_update_status_path(order_id: order.id, status: :pending), method: :patch, class: 'dropdown-item' %>
+          
+          <div class="dropdown-divider"></div>
+          <%= link_to "Zamítnuto", order_update_status_path(order_id: order.id, status: :rejected), method: :patch, class: 'dropdown-item' %>
+        </div>
+      </div>
+      
+    
+  </td>
+</tr>

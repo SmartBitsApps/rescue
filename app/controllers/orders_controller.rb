@@ -13,25 +13,30 @@ class OrdersController < ApplicationController
     
     @order_items = @order.order_items
   end
+  
+  def update_status
+    
+    @order = Order.find(params[:order_id])
+    
+    if @order
+      @order.update_attributes(status: params[:status])
+    else
+      redirect_to dashboard_path
+    end
+    
+    redirect_to dashboard_path, notice: t(".#{params[:status]}")
+
+  end
 
   # POST /orders
   # POST /orders.json
   def create
-    # @order = Order.new(order_params)
-    #cart = current_user.cart
-    #@order = Order.build(customer_id: cart.user_id, status: 0)
-    #@new_order = @order.add_order_items_to_order(cart)
-    
-  
-    #cart = Cart.find(params[:cart_id])
+   
     @order = Order.create(customer_id: @cart.user_id, status: 0)
     @cart.line_items.each do |item|
       @order.order_items.build(product: item.product, quantity: item.quantity)
     end
-    # throw(:abort) if @cart.line_items.map { |item| item.quantity }.sum.equal?(@order.total_order_items)
-     
-    
-    #@cart.line_items.destroy_all
+
     destroy_all_cart_line_items
    
     
