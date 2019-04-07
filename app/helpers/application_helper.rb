@@ -13,8 +13,12 @@ module ApplicationHelper
   end
   
   def total_order_items(order)
-    total = order.order_items.map { |item| item.quantity }.sum
-    return total if total > 0
+    if !order.order_items.nil? 
+      total = order.order_items.map { |item| item.quantity }.sum
+      return total if total > 0
+    else
+      return 0
+    end
   end
   
   # def bootstrap_class_for(flash_type) { 
