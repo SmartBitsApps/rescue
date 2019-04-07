@@ -44,6 +44,7 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
 
 # security
 gem 'devise', '~> 4.2'
+gem 'devise_invitable', '~> 2.0.0'
 
 # for paginations
 gem 'will_paginate', '~> 3.1.0'

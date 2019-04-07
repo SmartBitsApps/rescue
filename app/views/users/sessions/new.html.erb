@@ -24,6 +24,8 @@
           <!-- Form -->
           <!--<div class="my-5">-->
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), defaults: { input_html: { class: 'custom-control-input' } }  ) do |f| %>
+            <%# flash.each do |type, content| %> <%#= render 'layouts/partials/flash', type: type, content: content %> <%# end %>
+            
             <div class="form-group">
               <label class="form-label">Email</label>
               <!--<input type="text" class="form-control">-->

@@ -16,4 +16,15 @@ module ApplicationHelper
     total = order.order_items.map { |item| item.quantity }.sum
     return total if total > 0
   end
+  
+  # def bootstrap_class_for(flash_type) { 
+  #   success: 'alert-success',
+  #   error: 'alert-danger',
+  #   alert: 'alert-warning',
+  #   notice: 'alert-primary'
+  #   }
+    
+  #   [flash_type.to_sym] || flash_type.to_s 
+    
+  # end
 end

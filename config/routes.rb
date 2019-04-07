@@ -25,7 +25,15 @@ Rails.application.routes.draw do
   #  get 'sign_in', to: 'user/sessions#new'
   #end
   
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users, skip: [:registrations], controllers: { sessions: 'users/sessions' }
+  devise_scope :user do
+    resource :users,
+           only: [:edit, :update],
+           controller: 'users/registrations',
+           as: :user_registration do
+            get 'cancel'
+          end
+  end
   #get '/cart', to: 'order_items#index'
   #resources :order_items, path: '/cart/items' do
   #  collection do

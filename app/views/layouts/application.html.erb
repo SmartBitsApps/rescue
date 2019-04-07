@@ -75,6 +75,24 @@
 <body>
 <!-- <%#= current_user.first_name %> | Cart.to_s: <%#= @cart.to_s if @cart %> | Cart.id: <%#= @cart.id %> | Cart.items.total: <%#= total_cart_items %> | <%#= session[:cart_id] %> | <%#= cookies.encrypted[:cart_id].to_s %> -->
   <div class="page-loader"><div class="bg-primary"></div></div>
+  <%#= render 'layouts/partials/flash' %>
+  <!--<div class="row">-->
+  
+      <% flash.each do |name, msg| %>
+        <%#= content_tag(:div, msg, class:"alert alert-#{name}") %>
+        
+
+        <div class="alert alert-<%= name %> alert-dismissible fade show" role="alert">
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            <div class="text"> <%= msg %> </div>
+        </div>
+
+      <% end %>
+      
+      
+  <!--</div>-->
   
   <%= content_for?(:content) ? yield(:content) : yield %>
   

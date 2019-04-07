@@ -8,17 +8,115 @@
   </td>
   <td>
     
-      <div class="btn-group">
-        <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Změnit</button>
-        <div class="dropdown-menu">
-          <%= link_to "Schváleno", order_update_status_path(order_id: order.id, status: :approved), method: :patch, class: 'dropdown-item' %>
-          
-          <%= link_to "Probíhá", order_update_status_path(order_id: order.id, status: :pending), method: :patch, class: 'dropdown-item' %>
-          
-          <div class="dropdown-divider"></div>
-          <%= link_to "Zamítnuto", order_update_status_path(order_id: order.id, status: :rejected), method: :patch, class: 'dropdown-item' %>
+    <button type="button" class="btn btn-outline-primary btn-sm text-expanded" data-toggle="modal" data-target="#order-id-<%= order.id %>">Upravit</button>
+    
+
+      <!-- Modal template -->
+      <div id="<%#s= order.id %>">
+      <div class="modal fade" id="order-id-<%= order.id %>">
+        <div class="modal-dialog">
+          <form class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">
+                Objednávka <span class="font-weight-light">#<%= order.id %></span> <span class="badge badge-outline-<%= order_status_badge(order) %>"><%= order_status_badge_text(order) %></span><br>
+                <small class="text-muted">Cena celkem: <%= number_to_currency(order.total_price, options = {precision: 0, unit: "Kč", separator: ",", delimiter: ".", format: "%n %u"}) %></small>
+                
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+              
+              <div class="form-row">
+                    <!-- Items -->
+                <div class="card-body">
+                  <h6 class="small font-weight-semibold">
+                    Položky (<%= total_order_items(order) %>)
+                  </h6>
+            
+                  <div class="table-responsive">
+                    <table class="table table-bordered m-0">
+                      <tbody>
+              
+                        <% order.order_items.each do |item| %>
+                          <tr>
+                            <td class="p-4">
+                              <div class="media align-items-center">
+                                <!--<img src="assets/img/uikit/nike-1.jpg" class="d-block ui-w-40 ui-bordered mr-4" alt>-->
+                                <%#= image_tag(item.product.image.thumb.url, class: "d-block ui-w-40 ui-bordered mr-4") if item.product.image? %>
+                                <div class="media-body">
+                                  <div class="d-block text-dark"><%= item.product.title %> 
+                                    <span class="text-muted">#<%= item.product.id %></span>
+                                  </div>
+                                  <!--<small>-->
+                                  <!--  <span class="text-muted">Color:</span>-->
+                                  <!--  <span class="ui-product-color ui-product-color-sm align-text-bottom" style="background:#e81e2c;"></span> &nbsp;-->
+                                  <!--  <span class="text-muted">Size: </span> EU 37 &nbsp;-->
+                                  <!--  <span class="text-muted">Ships from: </span> China-->
+                                  <!--</small>-->
+                                </div>
+                              </div>
+                            </td>
+                            <!-- Set column width -->
+                            <td class="align-middle p-4" style="width: 66px;">
+                              x<%= item.quantity %>
+                            </td>
+                            <!-- Set column width -->
+                            <td class="text-right font-weight-semibold align-middle p-4" style="width: 100px;">
+                              <%= number_to_currency((item.product.price * item.quantity), options = {precision: 0, unit: "Kč", separator: ",", delimiter: ".", format: "%n %u"}) %>
+                            </td>
+                          </tr>
+                        <% end %>
+            
+            
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- / Items -->
+              </div>
+              
+              
+              <div class="form-row">
+                <div class="form-group col mb-0">
+                  <label class="form-label">Změnit stav objednávky:</label>
+                  <!--<input type="text" class="form-control" placeholder="XXXX XXXX XXXX XXXX">-->
+                  <div class="btn-group form-group col">
+                    <button class="btn dropdown-toggle btn-outline-primary btn-sm text-expanded" type="button" data-toggle="dropdown">Změnit</button>
+                    <div class="dropdown-menu">
+                      <%= link_to "Schváleno", order_update_status_path(order_id: order.id, status: :approved), method: :patch, class: 'dropdown-item' %>
+                      
+                      <%= link_to "Probíhá", order_update_status_path(order_id: order.id, status: :pending), method: :patch, class: 'dropdown-item' %>
+                      
+                      <div class="dropdown-divider"></div>
+                      <%= link_to "Zamítnuto", order_update_status_path(order_id: order.id, status: :rejected), method: :patch, class: 'dropdown-item' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group col mb-0">
+                  <label class="form-label">Celková cena:</label>
+                  <h4>1200 kč</h4>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Zpět</button>
+            </div>
+          </form>
         </div>
       </div>
+      </div>
+    
+      <!--<div class="btn-group">-->
+      <!--  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Změnit</button>-->
+      <!--  <div class="dropdown-menu">-->
+      <!--    <%= link_to "Schváleno", order_update_status_path(order_id: order.id, status: :approved), method: :patch, class: 'dropdown-item' %>-->
+          
+      <!--    <%= link_to "Probíhá", order_update_status_path(order_id: order.id, status: :pending), method: :patch, class: 'dropdown-item' %>-->
+          
+      <!--    <div class="dropdown-divider"></div>-->
+      <!--    <%= link_to "Zamítnuto", order_update_status_path(order_id: order.id, status: :rejected), method: :patch, class: 'dropdown-item' %>-->
+      <!--  </div>-->
+      <!--</div>-->
       
     
   </td>

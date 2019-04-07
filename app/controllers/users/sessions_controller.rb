@@ -9,9 +9,12 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+    
+    flash.now[:notice] = nil
+    set_flash_message!(:success, :signed_in)
+  end
 
   # DELETE /resource/sign_out
   # def destroy
